@@ -19,7 +19,6 @@ for r in ranges.split("\n"):
 	products.append(list([int(r1), int(r2)]))
 
 products.sort()
-print("products", products)
 
 for i in range(len(products)):
 	if i == 0:
@@ -28,6 +27,8 @@ for i in range(len(products)):
 		if products[i][0] <= products[i-1][1]:
 			# esta contenido en el rango anterior
 			if products[i][1] <= products[i-1][1]:
+				products[i][0] = products[i-1][0]
+				products[i][1] = products[i-1][1]
 				continue
 			# ajustar el limite de abajo para que no duplique
 			else:
